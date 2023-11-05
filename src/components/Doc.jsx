@@ -10,10 +10,31 @@ const docData = [
         fileName: 'Variable.vy'
     },
     {
+        heading: '# Data Types',
+        info: `=> Vyzon supports various data types, including <span style="color: #268bd2">strings</span>, <span style="color: #268bd2">numbers</span>, <span style="color: #268bd2">true</span>, <span style="color: #268bd2">false</span>, and <span style="color: #268bd2">null</span>, to represent a wide range of values. For example:`,
+        code: `let a = 'Hello, World!';
+let b = 10;
+let c = 10 + (10 * 3) + a;
+let d = "Ok!";
+let e = null;
+let f = true;
+let g = false;`,
+        fileName: 'DataTypes.vy'
+    },
+    {
         heading: '# Operators',
         info: `=> The operators are the same as in other programming languages.`,
-        code: `// Comparison Operators\nconst isEqual = 5 == 10;\nconst isNotEqual = 5 != 10;\nconst isGreaterThan = 5 > 10;\nconst isLessThan = 5 < 10;\nconst isGreaterOrEqual = 5 >= 10;\nconst isLessOrEqual = 5 <= 10;\n\n// Logical Operators\nconst andResult = true && false;\nconst orResult = true || false;\nconst notResult = !true;\n\n// Arithmetic Operators\nconst addition = 5 + 10;\nconst subtraction = 10 - 5;\nconst multiplication = 5 * 10;\nconst division = 10 / 5;\nconst modulus = 10 % 3;\nconst exponentiation = 2 ** 3;\n\n// Assignment Operators\nlet x = 5;\nx = x + 2;\nx += 2;\nx -= 3;\nx *= 4;\nx /= 6;`,
+        code: `// Comparison Operators\nconst isEqual = 5 == 10;\nconst isNotEqual = 5 != 10;\nconst isGreaterThan = 5 > 10;\nconst isLessThan = 5 < 10;\nconst isGreaterOrEqual = 5 >= 10;\nconst isLessOrEqual = 5 <= 10;\n\n// Logical Operators\nconst andResult = true && false;\nconst orResult = true || false;\nconst notResult = !true;\n\n// Arithmetic Operators\nconst addition = 5 + 10;\nconst subtraction = 10 - 5;\nconst multiplication = 5 * 10;\nconst division = 10 / 5;\nconst modulus = 10 % 3;\n\n// Assignment Operators\nlet x = 5;\nx = x + 2;\nx += 2;\nx -= 3;\nx *= 4;\nx /= 6;`,
         fileName: 'Operators.vy'
+    },
+    {
+        heading: '# Console Output',
+        info: `=> In Vyzon, you can print to the console using the <span style="color: #268bd2">write()</span> function. Here are some examples:`,
+        code: `let a = 'Anything';
+write(a); 
+write("abc");
+write("write anything: ", a);`,
+        fileName: `ConsoleOutput.vy`
     },
     {
         heading: '# Function',

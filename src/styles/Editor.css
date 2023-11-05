@@ -24,7 +24,7 @@
 }
 
 .line-number {
-    font-family: 'Proggy', sans-serif;
+    font-family: 'Droid Sans Mono', 'monospace', monospace;
     /* padding-right: 1rem; */
     font-size: 1.2rem;
     color: rgb(214, 222, 235);
@@ -52,7 +52,7 @@
     color: rgb(214, 222, 235);
     white-space: pre-wrap;
     word-wrap: break-word;
-    font-family: 'Proggy', sans-serif;
+    font-family: 'Droid Sans Mono', 'monospace', monospace;
     font-size: 1.2rem;
     box-shadow: 0 20px 30px -10px #26394d;
 }
