@@ -2,11 +2,11 @@ import '../styles/Result.css'
 import Top from './Top'
 import Editor from './Editor'
 
-export default function Result({result}) {
+export default function Result({ result }) {
     return (
         <div className="result">
             <Top fileName={'output'} />
-            <Editor disabled={true} code={result}/>
+            {result != '' ? <Editor disabled={true} code={result} /> : <Editor disabled={true} />}
         </div>
     )
 }

@@ -41,6 +41,18 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
         onCodeChange(newText);
     };
 
+    const handleTabKeyPress = (event) => {
+        if (event.key === "Tab" && !event.shiftKey) {
+            event.preventDefault();
+            const { selectionStart, selectionEnd } = event.target;
+            event.target.value =
+                event.target.value.substring(0, selectionStart) +
+                "    " + 
+                event.target.value.substring(selectionEnd);
+            event.target.selectionStart = event.target.selectionEnd = selectionStart + 4;
+        }
+    };
+
     return (
         <div className="editor-container">
             <div className="line-numbers" ref={lineNumbersRef}>
@@ -56,6 +68,7 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
                     disabled={disabled}
                     value={code}
                     onChange={handleCodeChange}
+                    onKeyDown={handleTabKeyPress}
                     ref={codeAreaRef}
                 >
                 </textarea>

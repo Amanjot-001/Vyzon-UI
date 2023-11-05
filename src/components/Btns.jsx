@@ -6,9 +6,9 @@ export default function Btns({onRunClick}) {
             <div className="Run" onClick={onRunClick}>
                 Run
             </div>
-            <div className="clear">
+            {/* <div className="clear">
                 Clear
-            </div>
+            </div> */}
         </div>
     )
 }
