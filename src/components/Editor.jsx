@@ -13,10 +13,10 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
     };
 
     useEffect(() => {
-        if (disabled && code) {
+        if ((disabled && code) || code) {
             updateLineNumbers(code);
         }
-    }, [code, disabled])
+    }, [])
 
     useEffect(() => {
         const codeArea = codeAreaRef.current;

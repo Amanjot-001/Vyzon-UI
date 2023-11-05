@@ -14,8 +14,6 @@ function App() {
   const [output, setOutput] = useState([]);
   const resultRef = useRef(null);
 
-  const startingCode = ``
-
   const customLogger = {
     log: (message) => {
       setOutput((prevOutput) => prevOutput + message + '\n');
