@@ -66,7 +66,7 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
                 <textarea
                     id="codeArea"
                     disabled={disabled}
-                    value={code}
+                    defaultValue={code}
                     onChange={handleCodeChange}
                     onKeyDown={handleTabKeyPress}
                     ref={codeAreaRef}

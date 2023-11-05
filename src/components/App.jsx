@@ -10,8 +10,20 @@ import { useState, useEffect, useRef } from 'react'
 import execute from '../language/run'
 
 function App() {
-  const [code, setCode] = useState('');
-  const [output, setOutput] = useState([]);
+  const startingCode = `def factorial(n) {
+    if (n <= 1) {
+        return 1;
+    }
+    else {
+        return n * factorial(n - 1);
+    }
+}
+
+let result = factorial(5);
+write(result);`
+
+  const [code, setCode] = useState(startingCode);
+  const [output, setOutput] = useState('');
   const resultRef = useRef(null);
 
   const customLogger = {
@@ -31,7 +43,7 @@ function App() {
 
   const executeCode = async () => {
     try {
-      setOutput([]);
+      setOutput('');
       execute(code);
     } catch (error) {
       setOutput(error);
@@ -51,7 +63,7 @@ function App() {
           <Label heading={'Playground'} />
           <Btns onRunClick={executeCode} />
         </div>
-        <Playground onCodeChange={setCode} />
+        <Playground onCodeChange={setCode} startingCode={startingCode} />
         <div className="result-div" ref={resultRef}>
           <Label heading={'Result'} />
         </div>
