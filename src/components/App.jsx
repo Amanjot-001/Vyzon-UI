@@ -7,28 +7,15 @@ import Result from './Result'
 import Doc from './Doc'
 import Btns from './Btns'
 import { useState } from 'react'
+import execute from '../language/run'
 
 function App() {
   const [code, setCode] = useState('');
+  const [output, setOutput] = useState([]);
 
   const executeCode = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/execute-code', {
-        method: 'POST',
-        body: JSON.stringify({ code }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.status === 200) {
-        console.log(await response.json());
-      } else {
-        console.error('Error executing code:', await response.text());
-      }
-    } catch (error) {
-      console.error('Error executing code:', error);
-    }
+    setOutput(execute(code));
+    console.log(output[0])
   };
 
   return (
@@ -42,7 +29,7 @@ function App() {
         </div>
         <Playground onCodeChange={setCode} />
         <Label heading={'Result'} />
-        <Result />
+        <Result result={output[0]} />
         <Label heading={'Documentation'} />
         <Doc />
       </div>

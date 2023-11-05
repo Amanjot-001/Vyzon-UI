@@ -66,5 +66,5 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
 
 Editor.propTypes = {
     disabled: PropTypes.bool,
-    code: PropTypes.string
+    code: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.any]),
 }
