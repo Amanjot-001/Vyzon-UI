@@ -6,16 +6,31 @@ import Playground from './Playground'
 import Result from './Result'
 import Doc from './Doc'
 import Btns from './Btns'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import execute from '../language/run'
 
 function App() {
   const [code, setCode] = useState('');
   const [output, setOutput] = useState([]);
 
+  const customLogger = {
+    log: (message) => {
+      setOutput((prevOutput) => prevOutput + message + '\n');
+    },
+  };
+
+  useEffect(() => {
+    const originalConsoleLog = console.log;
+    console.log = customLogger.log;
+
+    return () => {
+      console.log = originalConsoleLog;
+    };
+  }, []);
+
   const executeCode = async () => {
-    setOutput(execute(code));
-    console.log(output[0])
+    setOutput([]);
+    execute(code);
   };
 
   return (
@@ -29,7 +44,7 @@ function App() {
         </div>
         <Playground onCodeChange={setCode} />
         <Label heading={'Result'} />
-        <Result result={output[0]} />
+        <Result result={output} />
         <Label heading={'Documentation'} />
         <Doc />
       </div>

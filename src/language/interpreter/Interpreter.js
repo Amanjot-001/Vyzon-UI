@@ -168,7 +168,7 @@ export default class Interpreter {
 
     _callWriteExpression(node, env) {
         let args = node.arguments.map((args) => this.Expression(args, env));
-        return args
+        console.log(...args)
     }
 
     MemberExpression(node, env) {
