@@ -30,8 +30,12 @@ function App() {
   }, []);
 
   const executeCode = async () => {
-    setOutput([]);
-    execute(code);
+    try {
+      setOutput([]);
+      execute(code);
+    } catch (error) {
+      setOutput(error);
+    }
 
     if (resultRef.current) {
       resultRef.current.scrollIntoView({ behavior: 'smooth' });
