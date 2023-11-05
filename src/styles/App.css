@@ -41,6 +41,12 @@ body {
   align-items: center;
 }
 
+.result-div {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .inner-container {
     min-width: none;

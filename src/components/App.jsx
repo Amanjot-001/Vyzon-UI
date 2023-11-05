@@ -6,12 +6,13 @@ import Playground from './Playground'
 import Result from './Result'
 import Doc from './Doc'
 import Btns from './Btns'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import execute from '../language/run'
 
 function App() {
   const [code, setCode] = useState('');
   const [output, setOutput] = useState([]);
+  const resultRef = useRef(null);
 
   const customLogger = {
     log: (message) => {
@@ -31,6 +32,10 @@ function App() {
   const executeCode = async () => {
     setOutput([]);
     execute(code);
+
+    if (resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -43,7 +48,9 @@ function App() {
           <Btns onRunClick={executeCode} />
         </div>
         <Playground onCodeChange={setCode} />
-        <Label heading={'Result'} />
+        <div className="result-div" ref={resultRef}>
+          <Label heading={'Result'} />
+        </div>
         <Result result={output} />
         <Label heading={'Documentation'} />
         <Doc />
