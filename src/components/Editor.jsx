@@ -47,9 +47,9 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
             const { selectionStart, selectionEnd } = event.target;
             event.target.value =
                 event.target.value.substring(0, selectionStart) +
-                "    " + 
+                "  " + 
                 event.target.value.substring(selectionEnd);
-            event.target.selectionStart = event.target.selectionEnd = selectionStart + 4;
+            event.target.selectionStart = event.target.selectionEnd = selectionStart + 2;
         }
     };
 

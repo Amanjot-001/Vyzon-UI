@@ -4,6 +4,13 @@ import '../styles/Doc.css'
 
 const docData = [
     {
+        heading: '# Rules',
+        info: `=> Every statement in Vyzon should end with a semicolon <span style="color: #268bd2">(;)</span> to indicate the termination of the statement.
+=> Variable names in Vyzon should not start with a number.
+=> All functions in Vyzon should be declared above their function calls.
+=> In Vyzon, the <span style="color: #268bd2">++</span> and <span style="color: #268bd2">--</span> operators are not supported yet.`
+    },
+    {
         heading: '# Variable Declaration',
         info: `=> In Vyzon, variables are declared using the <span style="color: #268bd2">let</span> keyword.`,
         code: `let a;  // Variable 'a' is declared and initialized with the default value of 0\nlet b = 1;  // Variable 'b' is declared and initialized with the value 1\nlet c = 'Hello, World!';`,
@@ -12,9 +19,7 @@ const docData = [
     {
         heading: '# Data Types',
         info: `=> Vyzon supports various data types, including <span style="color: #268bd2">strings</span>, <span style="color: #268bd2">numbers</span>, <span style="color: #268bd2">true</span>, <span style="color: #268bd2">false</span>, and <span style="color: #268bd2">null</span>, to represent a wide range of values. For example:`,
-        code: `let a = 'Hello, World!';
-let b = 10;
-let c = 10 + (10 * 3) + a;
+        code: `let a = 'Hello, World!';let b = 10;let c = 10 + (10 * 3) + a;
 let d = "Ok!";
 let e = null;
 let f = true;
@@ -64,10 +69,12 @@ export default function Doc() {
                     <div className="heading">{data.heading}</div>
                     <div className="info" dangerouslySetInnerHTML={{ __html: data.info }}>
                     </div>
-                    <div className="example">
-                        <Top fileName={data.fileName} />
-                        <Editor disabled={true} code={data.code} className='custom-editor' />
-                    </div>
+                    {data.fileName ? (
+                        <div className="example">
+                            <Top fileName={data.fileName} />
+                            <Editor disabled={true} code={data.code} className='custom-editor' />
+                        </div>
+                    ) : null}
                 </div>
             ))}
         </div >
