@@ -16,7 +16,7 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
         if (disabled && code) {
             updateLineNumbers(code);
         }
-    }, [])
+    }, [code, disabled])
 
     useEffect(() => {
         const codeArea = codeAreaRef.current;
@@ -47,7 +47,7 @@ export default function Editor({ disabled = false, code, onCodeChange }) {
             const { selectionStart, selectionEnd } = event.target;
             event.target.value =
                 event.target.value.substring(0, selectionStart) +
-                "  " + 
+                "  " +
                 event.target.value.substring(selectionEnd);
             event.target.selectionStart = event.target.selectionEnd = selectionStart + 2;
         }
