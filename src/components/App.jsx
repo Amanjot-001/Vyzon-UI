@@ -6,6 +6,7 @@ import Playground from './Playground'
 import Result from './Result'
 import Doc from './Doc'
 import Btns from './Btns'
+import Creators from './Creators'
 import { useState, useEffect, useRef } from 'react'
 import execute from '../language/run'
 
@@ -70,6 +71,8 @@ write(result);`
         <Result result={output} />
         <Label heading={'Documentation'} />
         <Doc />
+        <Label heading={'Creators'} />
+        <Creators />
       </div>
     </div>
   )

@@ -1,0 +1,50 @@
+@font-face {
+    font-family: menlo;
+    src: url('../assets/fonts/Menlo-Regular.ttf');
+}
+
+.creators {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.card {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.name {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 700;
+    font-family: 'menlo', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 400;
+    color: #333;
+    font-family: 'Akkurat', sans-serif;
+    font-size: 0.9rem;
+    margin-left: 2rem;
+
+    >span {
+        color: #268bd2;
+    }
+}
+
+@media (max-width: 500px) {
+    .creators {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
